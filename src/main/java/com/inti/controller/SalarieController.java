@@ -47,7 +47,7 @@ public class SalarieController {
         return "redirect:/salarie/listeSalarie";
     }
     
-    @GetMapping("/listeSalarie")
+    @GetMapping("listeSalarie")
     public String listeSalarie(Model model) {
         List<Salarie> salaries = salarieRepository.findAll();
         model.addAttribute("salaries", salaries);
