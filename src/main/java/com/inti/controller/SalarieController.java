@@ -41,7 +41,7 @@ public class SalarieController {
 
     @GetMapping("supprimerSalarie/{id}")
     public String supprimerSalarie(@PathVariable("id") int id) {
-        salarieRepository.deleteById(id);
+		salarieRepository.delete(salarieRepository.getById(id));
         return "redirect:/salarie/listeSalarie";
     }
 }
