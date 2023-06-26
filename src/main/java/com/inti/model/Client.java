@@ -18,3 +18,4 @@ public class Client extends Utilisateur {
 	private String email;
 	private String telephone;
 }
+
