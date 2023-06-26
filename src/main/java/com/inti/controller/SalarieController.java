@@ -1,5 +1,7 @@
 package com.inti.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,4 +46,11 @@ public class SalarieController {
 		salarieRepository.delete(salarieRepository.getById(id));
         return "redirect:/salarie/listeSalarie";
     }
+    
+    @GetMapping("/listeSalarie")
+    public String listeSalarie(Model model) {
+        List<Salarie> salaries = salarieRepository.findAll();
+        model.addAttribute("salaries", salaries);
+        return "listeSalaries";
+}
 }
