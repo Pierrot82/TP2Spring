@@ -40,4 +40,11 @@ public class ClientController {
 		return "redirect:/";
 	}
 	
+	@Secured("{ROLE_RESPONSABLE, ROLE_SALARIE")
+	@PostMapping("/supprimerClient/{id}") 
+	public String supprimerClient (@ModelAttribute("client") Client client)
+	{
+		clientRepository.delete(client);
+		return "redirect:/";
+	}
 }
