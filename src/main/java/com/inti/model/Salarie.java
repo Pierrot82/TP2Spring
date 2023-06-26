@@ -22,9 +22,6 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor
 @EqualsAndHashCode (callSuper = false)
 public class Salarie extends Utilisateur{
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private String nom;
 	private String prenom;
