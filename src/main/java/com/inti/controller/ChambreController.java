@@ -40,7 +40,7 @@ public class ChambreController {
 	//Update
 		@GetMapping("/modifierChambre/{id}")
 		public String FormulaireModificationChambre(@PathVariable("id") int id, Model model) {
-			model.addAttribute("c1", icr.getReferenceById(id));
+			model.addAttribute("c1", icr.getById(id));
 			return "modifierChambre";
 		}
 

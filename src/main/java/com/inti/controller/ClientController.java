@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.inti.model.Client;
-import com.inti.repository.ClientRepository;
+import com.inti.repository.IClientRepository;
 
 @Controller
 public class ClientController {
 	@Autowired
-	ClientRepository clientRepository;
+	IClientRepository iClientRepository;
 	
 	@Secured("ROLE_CLIENT")
 	@GetMapping("/afficherClients") 
 	public String afficherClients(Model model) {
-		model.addAttribute("client", clientRepository.findAll());
+		model.addAttribute("client", iClientRepository.findAll());
 		return "afficherClients";
 	}
 	
@@ -28,7 +28,7 @@ public class ClientController {
 	@GetMapping("/modifierClient/{id}")
 	public String modifierClient(@PathVariable("id") int id, Model model)
 	{
-		model.addAttribute("client", clientRepository.findById(id).get());
+		model.addAttribute("client", iClientRepository.findById(id).get());
 		return "modifierClient";
 	}
 
@@ -36,7 +36,7 @@ public class ClientController {
 	@PostMapping("/modifierClient/{id}") 
 	public String updateClient (@ModelAttribute("client") Client client)
 	{
-		clientRepository.save(client);
+		iClientRepository.save(client);
 		return "redirect:/";
 	}
 	
@@ -44,7 +44,7 @@ public class ClientController {
 	@PostMapping("/supprimerClient/{id}") 
 	public String supprimerClient (@ModelAttribute("client") Client client)
 	{
-		clientRepository.delete(client);
+		iClientRepository.delete(client);
 		return "redirect:/";
 	}
 }
