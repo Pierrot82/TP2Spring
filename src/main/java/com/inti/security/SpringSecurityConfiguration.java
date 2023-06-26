@@ -12,21 +12,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.inti.service.CustomUserDetailService;
+import com.inti.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	UserDetailsService uds;
+	CustomUserDetailsService uds;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		   http
 	        .authorizeRequests()
-	        	.antMatchers("/index", "/login", "/creerUtilisateur").permitAll()
+	        	.antMatchers("/", "/login", "/creerClient").permitAll()
 	            .anyRequest().authenticated()
 	            .and()
 	        .formLogin()
