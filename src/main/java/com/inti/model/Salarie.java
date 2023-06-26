@@ -6,22 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table
-@Data @AllArgsConstructor @NoArgsConstructor
-public class Salarie {
+@PrimaryKeyJoinColumn(name = "idUtilisateur")
+@Data @NoArgsConstructor
+@EqualsAndHashCode (callSuper = false)
+public class Salarie extends Utilisateur{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+
 	private String nom;
 	private String prenom;
 	private String type;
