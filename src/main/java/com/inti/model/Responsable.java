@@ -12,11 +12,6 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "idUtilisateur")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Client extends Utilisateur {
-    private String nom;
-    private String prenom;
-    private String adresse;
-    private String email;
-    private String telephone;
+public class Responsable extends Utilisateur {
+	private String nom;
 }
-
