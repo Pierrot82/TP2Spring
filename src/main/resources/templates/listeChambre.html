@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>liste des chambres</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:include="menu.html"></div>
+<table class="chambre">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Numéro de chambre</th>
+      <th scope="col">Superficie</th>
+      <th scope="col">Étage</th>
+      <th scope="col">Disponnibilité</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>   
+  
+  
+    <tr th:each="l : ${ listeChambre}">
+    
+    
+    	
+      <th scope="row"><a th:href="'getChambre/' + ${ l.idChambre }" th:text="${ l.idChambre}"></a></th>
+      <td th:text="${ l.numChambre }"></td>
+      <td th:text="${ l.superficie }" ></td>
+      <td th:text="${ l.etage }"></td>
+      <td th:text="${ l.disponibilite }"></td>
+      <td th:text="${ l.prix }"></td>
+
+      <td> <a th:href="'deleteLieu/' + ${ l1.codeLieu }"> <button type="button" class = "btn btn-danger">Supprimer</button> </a><a th:href="'modifierLieu/' + ${ l1.codeLieu }"> <button type="button" class = "btn btn-danger">modifier</button> </a></td>
+    </tr>
+
+
+
+
+  </tbody>
+</table>
+
+</body>
+</html>
