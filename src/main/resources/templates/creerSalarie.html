@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <title>Créer salarié</title>
 </head>
 <body>
-	<div th:include="menu.html"></div>
 	<div style="margin-left: 10%; margin-right: 10%; margin-top: 10%">
-		<form method="post" modelAttribute="salarie">
+		<form method="post" th:object="${salarie}">
 
 			<div class="mb-3">
-				<label for="nom" class="form-label">Nom</label> <input type="text"
-					name="Nom" class="form-control">
+				<label for="nom" class="form-label">Nom</label>
+				<input type="text" th:field="*{nom}" class="form-control">
 			</div>
 
 			<div class="mb-3">
-				<label for="prenom" class="form-label">Prénom</label> <input type="text"
-					name="prenom" class="form-control">
+				<label for="prenom" class="form-label">Prénom</label>
+				<input type="text" th:field="*{prenom}" class="form-control">
 			</div>
 
 			<div class="mb-3">
-				<label for="type" class="form-label">Type</label> <input type="text"
-					name="type" class="form-control">
+				<label for="type" class="form-label">Type</label>
+				<input type="text" th:field="*{type}" class="form-control">
 			</div>
 
 			<div class="mb-3">
-				<label for="dateNaissance" class="form-label">Date de naissance</label> <input type="text"
-					name="dateNaissance" class="form-control">
+				<label for="dateNaissance" class="form-label">Date de naissance</label>
+				<input type="text" th:field="*{dateNaissance}" class="form-control">
 			</div>
 
 			<div class="mb-3">
-				<label for="dateEmbauche" class="form-label">Date d'embauche</label> <input type="text"
-					name="dateEmbauche" class="form-control">
+				<label for="dateEmbauche" class="form-label">Date d'embauche</label>
+				<input type="text" th:field="*{dateEmbauche}" class="form-control">
 			</div>
-
 
 			<button type="submit" class="btn btn-outline-success btn-sm">Valider</button>
 			<button type="reset" class="btn btn-outline-secondary btn-sm">Annuler</button>
